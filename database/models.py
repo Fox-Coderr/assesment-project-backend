@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 from database.session_manager import create_session
-from database.config import engine
 
 
 Base = declarative_base()
@@ -39,7 +38,3 @@ class Message(Base):
     timestamp = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     chat_room = relationship('ChatRoom')
-
-
-#should be removed?
-Base.metadata.create_all(engine)
