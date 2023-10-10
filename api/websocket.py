@@ -1,7 +1,10 @@
 from fastapi import WebSocket, WebSocketDisconnect
-from api.config import app, connected_clients
+from fastapi import FastAPI
 from database.models import create_message
 import json
+
+app = FastAPI()
+connected_clients = {}
 
 
 @app.websocket("/ws/{room_name}")
