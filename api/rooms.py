@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 
-@router.post("/create_room/")
+@router.post("/")
 def create_room(room: schemas.RoomCreate):
     session = create_session()
     chat_room = ChatRoom(room_name=room.name)

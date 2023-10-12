@@ -10,7 +10,7 @@ router = APIRouter(
 )
 
 
-@router.get("/get_messages/{room_id}/", response_model=list[schemas.Message])
+@router.get("/{room_id}/", response_model=list[schemas.Message])
 def get_messages(room_id):
     session = create_session()
     messages = session.query(Message).filter_by(room_id=room_id).all()
